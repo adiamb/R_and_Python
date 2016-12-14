@@ -4,7 +4,7 @@ Created on Tue Oct 11 14:53:05 2016
 
 @author: ambati
 """
-#dependencies - Biopython
+#dependencies - Biopython (from terminal type "PIP install biopython" without colons
 #For a protein fasta file to create a 16aa overlap with 4 aa shift - 16mer epitope
 from Bio import SeqIO
 with open("output.txt", "w") as f: ##intialize a text file to be populate from for loop
