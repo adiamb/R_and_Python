@@ -18,7 +18,7 @@ inpatient$Hospital_Referral_Region_Description = as.factor(inpatient$Hospital_Re
 str(inpatient) #check 
 summary(inpatient) #check the distribution of numerical values
 require(ggplot2)
-ggplot(inpatient, aes(factor(DRG_Definition), Average_Total_Payments))+geom_boxplot()+theme(axis.text.x = element_text(angle = 90))+coord_flip()
+ggplot(inpatient, aes(factor(DRG_Definition), Average_Medicare_Payments))+geom_boxplot(color = "blue")+theme(axis.text.x = element_text(angle = 90))+coord_flip()
 ggplot(inpatient, aes(factor(Provider_State), Average_Medicare_Payments))+geom_boxplot()+theme(axis.text.x = element_text(angle = 90))+coord_flip()
 
 setDT(inpatient) ## change to data table, makes it easy to aggregate
