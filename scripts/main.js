@@ -6,7 +6,7 @@ const app = document.getElementById('root');
 
 
 
-const url = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=30&retmode=json&rettype=abstract&term=Ambati+A&sort=date&mindate=2013/01&maxdate=2020/03'
+const url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=30&retmode=json&rettype=abstract&term=Ambati+A&sort=date&mindate=2013/01&maxdate=2020/03'
 
 
 fetch(url)
@@ -29,7 +29,7 @@ fetch(url)
 
 
 function parsePubmed(pubId) {
-  const textUrl='http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&rettype=title&sort=date&id='+pubId
+  const textUrl='https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&rettype=title&sort=date&id='+pubId
   fetch(textUrl)
     .then((resp) => resp.json())
     .then(data => {
