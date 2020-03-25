@@ -15,7 +15,7 @@ fetch(url)
     // console.log(data.esearchresult.idlist);
     var ids = data.esearchresult.idlist;
     console.log(ids.toString())
-    parsedJson=parsePubmed(pubId=ids.toString())
+    parsedJson=parsePubmed(pubId=ids.reverse().toString())
     // console.log(parsedJson)
     // ul = document.getElementById('pubs');
     // ids.forEach(testFunc);
@@ -33,14 +33,30 @@ function parsePubmed(pubId) {
   fetch(textUrl)
     .then((resp) => resp.json())
     .then(data => {
-      //console.log(data)
+      console.log(data)
       ul = document.getElementById('pubs')
       for (let item of Object.keys(data.result)){
-        var title = data.result[item].title
-        console.log(title)
-        let li = document.createElement('li');
-        ul.appendChild(li);
-        li.innerHTML += title
+        if(item != undefined){
+          var title = data.result[item].title+' '
+          var source = ' '+data.result[item].source.italics()+' '
+          var dates_ = data.result[item].epubdate
+          var authorsJson = data.result[item].authors
+          const authList = []
+          for (let ath of Object.keys(authorsJson)){
+            var author = authorsJson[ath].name
+            if (author == "Ambati A"){
+              var author = author.fontcolor('red')
+            }
+            authList.push(author)
+          }
+          let li = document.createElement('li');
+          ul.appendChild(li);
+          li.innerHTML += title
+          li.innerHTML += authList.toString(' ')
+          li.innerHTML += source
+          li.innerHTML += dates_
+
       }
+    }
     });
   }
