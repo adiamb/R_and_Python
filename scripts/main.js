@@ -29,7 +29,7 @@ fetch(url)
 
 
 function parsePubmed(pubId) {
-  const textUrl='https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&rettype=title&sort=date&id='+pubId
+  const textUrl='http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&rettype=title&sort=date&id='+pubId
   fetch(textUrl)
     .then((resp) => resp.json())
     .then(data => {
