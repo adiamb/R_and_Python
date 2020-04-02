@@ -16,15 +16,6 @@ fetch(url)
     var ids = data.esearchresult.idlist;
     console.log(ids.toString())
     parsedJson=parsePubmed(pubId=ids.reverse().toString())
-    // console.log(parsedJson)
-    // ul = document.getElementById('pubs');
-    // ids.forEach(testFunc);
-    // function testFunc(val) {
-    //   let li = document.createElement('li');
-    //   ul.appendChild(li);
-    //   li.innerHTML += val
-    //   // console.log(val);
-    // }
   });
 
 
